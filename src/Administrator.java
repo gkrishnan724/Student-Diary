@@ -5,6 +5,10 @@ import java.io.*;
 public class Administrator extends User {
 	
 	static ArrayList<User> totalAdmins = new ArrayList<User>();
+	
+	Administrator(){
+		
+	}
 
 	
 	Administrator(String name, String username, String password){

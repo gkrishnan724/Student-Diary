@@ -6,12 +6,20 @@ public class Counsellor extends User {
 	ArrayList<Student> advisorOf;
 	ArrayList<Subject> teachingSubjects;
 	Branch department;
+	ArrayList<Achievement> pendingAchievements;
 	static ArrayList<User> totalCounsellors = new ArrayList<User>();
+	
+	Counsellor(){
+		
+	}
 	
 	Counsellor(String name, String username, String password){
 		this.name = name;
 		this.username = username;
 		this.password = password;
+		this.teachingSubjects = new ArrayList<Subject>();
+		this.advisorOf = new ArrayList<Student>();
+		this.pendingAchievements = new ArrayList<Achievement>();
 		totalCounsellors.add(this);
 		this.save();
 	}

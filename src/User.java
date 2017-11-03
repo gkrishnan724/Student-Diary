@@ -8,6 +8,7 @@ public abstract class User implements Serializable,Storeable {
 	String password;
 	Address address;
 	Branch department;
+	ArrayList<User> arr = new ArrayList<User>();
 	public static ArrayList<ArrayList<User>> totalUsers = new ArrayList<ArrayList<User>>();
 	
 	
@@ -58,6 +59,5 @@ public abstract class User implements Serializable,Storeable {
 	
 	public abstract void profileView();
 	
-	public abstract void displayProfileOptions();
 	
 }

@@ -4,7 +4,14 @@ public class Activity {
 	String type;
 	Date date;
 	
+	
+	Activity(String name, String type, Date date){
+		this.name = name;
+		this.type = type;
+		this.date = date;
+	}
 	public String toString(){
-		return this.name + "\t| "+this.type + "\t| "+this.date;
+		return String.format("%s%29s|%s%29s|%s",this.name,this.type,this.date);
+
 	}
 }

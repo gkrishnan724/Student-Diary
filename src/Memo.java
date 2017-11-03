@@ -13,6 +13,6 @@ public class Memo {
 	}
 	
 	public String toString(){
-		return this.name + "\t | " + this.givenBy.name + "\t | " + this.reason;
+		return String.format("%s%29s|%s%29s|%s",this.name,this.givenBy,this.reason);
 	}
 }

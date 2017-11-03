@@ -19,7 +19,7 @@ public class Subject implements Storeable{
 	}
 	
 	public String toString(){
-		return this.name + "\t | " + this.code + "\t | " + this.credits;
+		return String.format("%s%29s|%s%29s|%s",this.name,"",this.code,"",this.credits);
 	}
 	
 	public void save(){
@@ -57,5 +57,23 @@ public class Subject implements Storeable{
 			return null;
 		}
 		return totalSubjects;
+	}
+	
+	public static boolean containsCode(String code){
+		for(Subject s: totalSubjects){
+			if(s.code.equals(code)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static Subject getSubject(String code){
+		for(Subject s: totalSubjects){
+			if(s.code.equals(code)){
+				return s;
+			}
+		}
+		return null;
 	}
 }

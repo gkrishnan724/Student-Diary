@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Session {
-	User sessionUser;
+	static User sessionUser;
 	
 	Session(String user, String pass){
 		this.init();
@@ -9,7 +9,7 @@ public class Session {
 			if(arr != null){
 				for(User n: arr){
 					if(n.username.equals(user) && n.password.equals(pass)){
-						this.sessionUser = n;
+						Session.sessionUser = n;
 						System.out.println("---------------------------------");
 						System.out.println("");
 						System.out.println("Hi " + n.name + "!");
@@ -32,9 +32,10 @@ public class Session {
 		String password = input.nextLine();
 //		Administrator admin = new Administrator("Gopal","gkrishnan724","root");
 //		Counsellor s = new Counsellor("Gopal2","gk","root");
+//		new Student("Gopal","u4cse16126",null);
 		Session currentSession = new Session(username,password);
 		
-		currentSession.sessionUser.displayMenu();
+		Session.sessionUser.displayMenu();
 	}
 	
 	public static void init(){
@@ -43,6 +44,11 @@ public class Session {
 		User.totalUsers.add(Administrator.get());
 		Branch.get();
 		Subject.get();
+	}
+	
+	public static void clrscr(){
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 	
 	

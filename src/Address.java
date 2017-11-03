@@ -13,4 +13,8 @@ public class Address {
 		this.country = country;
 		this.Zip = Zip;
 	}
+	
+	public String toString(){
+		return "Place: "+place+" District: "+district+" State: "+" Country: "+country;
+	}
 }
