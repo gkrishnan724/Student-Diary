@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
-public class Subject implements Storeable{
+public class Subject implements Storeable,Serializable{
 	String name;
 	String code;
 	int credits;
@@ -14,12 +14,14 @@ public class Subject implements Storeable{
 		this.credits = credits;
 		this.semester = semester;
 		this.department = department;
+		department.subjects.add(this);
+		department.save();
 		totalSubjects.add(this);
 		this.save();
 	}
 	
 	public String toString(){
-		return String.format("%s%29s|%s%29s|%s",this.name,"",this.code,"",this.credits);
+		return String.format("%s%29s%s%29s%s",this.name,"",this.code,"",this.credits);
 	}
 	
 	public void save(){
@@ -73,6 +75,22 @@ public class Subject implements Storeable{
 			if(s.code.equals(code)){
 				return s;
 			}
+		}
+		return null;
+	}
+	
+	public static void showAllSubjects(){
+		System.out.println("-------------Subjects-------------------");
+		for(Subject s: Subject.totalSubjects){
+			System.out.println(s.name);
+		}
+	}
+	
+	public static Subject returnSubject(String code){
+		for(Subject s: Subject.totalSubjects){
+				if(s.code.equals(code)){
+					return s;
+				}
 		}
 		return null;
 	}

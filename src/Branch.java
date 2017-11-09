@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 import java.io.*;
-public class Branch implements Storeable {
+public class Branch implements Storeable,Serializable {
 	String name;
 	ArrayList<Subject> subjects;
 	static ArrayList<Branch> totalBranches = new ArrayList<Branch>();
 	
-	Branch(){
+	Branch(String name){
+		this.subjects = new ArrayList<Subject>();
+		this.name = name;
 		totalBranches.add(this);
 		this.save();
 	}
-	
 	public void save(){
 		ObjectOutputStream out = null;
 		try{
@@ -46,6 +47,22 @@ public class Branch implements Storeable {
 			return null;
 		}
 		return totalBranches;
+	}
+	
+	public static void showAllBranches(){
+		System.out.println("-------------Branches-------------------");
+		for(Branch s: Branch.totalBranches){
+			System.out.println(s.name);
+		}
+	}
+	
+	public static Branch returnBranch(String name){
+		for(Branch s: Branch.totalBranches){
+			if(s.name.equals(name)){
+				return s;
+			}
+		}
+		return null;
 	}
 	
 }

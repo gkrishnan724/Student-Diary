@@ -1,5 +1,6 @@
+import java.io.Serializable;
 import java.util.Date;
-public class Activity {
+public class Activity implements Serializable{
 	String name;
 	String type;
 	Date date;
@@ -11,7 +12,7 @@ public class Activity {
 		this.date = date;
 	}
 	public String toString(){
-		return String.format("%s%29s|%s%29s|%s",this.name,this.type,this.date);
+		return String.format("%s%29s%s%29s%s",this.name,"",this.type,"",this.date);
 
 	}
 }

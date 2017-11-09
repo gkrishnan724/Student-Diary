@@ -13,13 +13,14 @@ public class Counsellor extends User {
 		
 	}
 	
-	Counsellor(String name, String username, String password){
+	Counsellor(String name, String username, String password,Branch b){
 		this.name = name;
 		this.username = username;
 		this.password = password;
 		this.teachingSubjects = new ArrayList<Subject>();
 		this.advisorOf = new ArrayList<Student>();
 		this.pendingAchievements = new ArrayList<Achievement>();
+		this.department = b;
 		totalCounsellors.add(this);
 		this.save();
 	}
@@ -65,6 +66,23 @@ public class Counsellor extends User {
 	}
 	
 	public void edit(){
+		
+	}
+	
+	public static void showAllCounsellors(){
+		for(User s: Counsellor.totalCounsellors){
+			System.out.println(s.name);
+		}
+	}
+	
+	public static Counsellor returnCounsellor(String username){
+		System.out.println("----------------Counsellors-----------------------");
+		for(User s:Counsellor.totalCounsellors){
+			if(s.username.equals(username)){
+				return (Counsellor)s;
+			}
+		}
+		return null;
 		
 	}
 }

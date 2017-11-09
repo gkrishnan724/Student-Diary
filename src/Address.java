@@ -1,11 +1,15 @@
+import java.io.Serializable;
 
-public class Address {
+public class Address implements Serializable{
 	String place;
 	String district;
 	String state;
 	String country;
 	int Zip;
 	
+	Address(){
+		
+	}
 	Address(String place, String district , String state , String country, int Zip){
 		this.place = place;
 		this.district = district;

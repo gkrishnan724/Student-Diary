@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Grade {
+public class Grade implements Serializable{
 	Subject subject;
 	String Grade;
 	float internals;

@@ -10,32 +10,32 @@ public class Session {
 				for(User n: arr){
 					if(n.username.equals(user) && n.password.equals(pass)){
 						Session.sessionUser = n;
-						System.out.println("---------------------------------");
-						System.out.println("");
-						System.out.println("Hi " + n.name + "!");
 						System.out.println(" ");
 						return;
 					}
 				}
 			}
 		}
-		System.out.println("Session Creation failed, Invalid Login!");
-		System.exit(0);
+		Session.clrscr();
+		System.out.println("Session Creation failed, Invalid Login! please try again..");
 	}
 	
 	public static void main(String[] args){
-		System.out.println("----------Amrita Student Diary---------");
-		Scanner input = new Scanner(System.in);
-		System.out.println("Username: ");
-		String username = input.nextLine();
-		System.out.println("Password: ");
-		String password = input.nextLine();
-//		Administrator admin = new Administrator("Gopal","gkrishnan724","root");
-//		Counsellor s = new Counsellor("Gopal2","gk","root");
-//		new Student("Gopal","u4cse16126",null);
-		Session currentSession = new Session(username,password);
-		
-		Session.sessionUser.displayMenu();
+		while(true){
+			System.out.println("----------Amrita Student Diary---------");
+			Scanner input = new Scanner(System.in);
+			System.out.println("Username: ");
+			String username = input.nextLine();
+			System.out.println("Password: ");
+			String password = input.nextLine();
+	//		Counsellor s = new Counsellor("Gopal2","gk","root");
+//			Student s = new Student("Gopal","u4cse16126",null);
+			Session currentSession = new Session(username,password);
+			Session.clrscr();
+			if(sessionUser!= null){
+				Session.sessionUser.displayMenu();
+			}
+		}
 	}
 	
 	public static void init(){
@@ -47,8 +47,7 @@ public class Session {
 	}
 	
 	public static void clrscr(){
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
+		System.out.println(String.format("%0" + 40 + "d", 0).replace("0","\n"));
 	}
 	
 	

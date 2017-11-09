@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-public class Marks {
+import java.io.*;
+public class Marks implements Serializable {
 	float CGPA;
 	float SGPA;
-	ArrayList<Grade> GradeTable;
-	ArrayList<Subject> arrears;
+	ArrayList<Grade> GradeTable = new ArrayList<Grade>();
+	ArrayList<Subject> arrears = new ArrayList<Subject>();
 }

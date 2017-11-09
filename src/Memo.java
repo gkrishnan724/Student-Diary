@@ -1,11 +1,12 @@
+import java.io.Serializable;
 
-public class Memo {
+public class Memo implements Serializable{
 	String name;
-	Counsellor givenBy;
+	User givenBy;
 	String reason;
 	Student givenTo;
 	
-	Memo(String name, Counsellor givenBy, Student givenTo, String reason){
+	Memo(String name, User givenBy, Student givenTo, String reason){
 		this.name = name;
 		this.givenBy = givenBy;
 		this.givenTo = givenTo;
@@ -13,6 +14,6 @@ public class Memo {
 	}
 	
 	public String toString(){
-		return String.format("%s%29s|%s%29s|%s",this.name,this.givenBy,this.reason);
+		return String.format("%s%29s%s%29s%s",this.name,"",this.givenBy.name,"",this.reason);
 	}
 }

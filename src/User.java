@@ -8,7 +8,6 @@ public abstract class User implements Serializable,Storeable {
 	String password;
 	Address address;
 	Branch department;
-	ArrayList<User> arr = new ArrayList<User>();
 	public static ArrayList<ArrayList<User>> totalUsers = new ArrayList<ArrayList<User>>();
 	
 	
@@ -44,7 +43,7 @@ public abstract class User implements Serializable,Storeable {
 			out.close();
 		}
 		catch(Exception e){
-			System.out.println("Unable to save users..");
+			System.out.println(e);
 			return;
 		}
 	}

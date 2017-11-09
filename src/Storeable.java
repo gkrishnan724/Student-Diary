@@ -1,4 +1,5 @@
 import java.util.ArrayList;
-public interface Storeable {
+import java.io.*;
+public interface Storeable extends Serializable{
 	public void save();
 }
