@@ -96,6 +96,7 @@ public class Administrator extends User {
 					showAllAdmins();
 					this.AdminOptions();
 				default:
+					Session.clrscr();
 					return;
 				
 			}

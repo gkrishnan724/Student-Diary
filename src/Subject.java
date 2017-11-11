@@ -8,6 +8,10 @@ public class Subject implements Storeable,Serializable{
 	Branch department;
 	static ArrayList<Subject> totalSubjects = new ArrayList<Subject>();
 	
+	Subject(){
+		
+	}
+	
 	Subject(String name, String code, int credits, int semester, Branch department){
 		this.name = name;
 		this.code = code;

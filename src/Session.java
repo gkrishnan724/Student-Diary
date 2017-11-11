@@ -16,6 +16,7 @@ public class Session {
 				}
 			}
 		}
+		Session.sessionUser = null;
 		Session.clrscr();
 		System.out.println("Session Creation failed, Invalid Login! please try again..");
 	}
@@ -30,9 +31,10 @@ public class Session {
 			String password = input.nextLine();
 	//		Counsellor s = new Counsellor("Gopal2","gk","root");
 //			Student s = new Student("Gopal","u4cse16126",null);
+//			Administrator admin = new Administrator("Gopala","gkrishnan724","root");
 			Session currentSession = new Session(username,password);
-			Session.clrscr();
 			if(sessionUser!= null){
+				Session.clrscr();
 				Session.sessionUser.displayMenu();
 			}
 		}

@@ -20,7 +20,6 @@ public class StudentGradeBook implements Serializable {
 				return;
 			}
 			else{
-				System.out.println("Instructions: Leave the input blank if no change. \n");
 				System.out.print("Internal Marks: ");
 				g.internals = input.nextFloat();
 				System.out.print("Semester Marks: ");
@@ -28,17 +27,27 @@ public class StudentGradeBook implements Serializable {
 				System.out.print("Grade: ");
 				g.Grade = input.next();
 			}
+			System.out.print("Add Arrears(Y/N)?: ");
+			if(input.next().equals("Y")){
+				System.out.println("Enter Subject code: ");
+				String code2 = input.next();
+				if(currentStudent.hasSubject(code2)){
+					currentStudent.gradeBook.arrears.add(Subject.returnSubject(code2));
+				}
+				else{
+					System.out.println("Student not registered for the subject...");
+				}
+			}
 			currentStudent.save();
 		}
 		
 		public void gradeBookOptions(){
 			while(true){
-				System.out.println("(default) Back");
-				
 				Scanner input = new Scanner(System.in);
 				if(Session.sessionUser instanceof Counsellor){
 					System.out.println("1. Add new Grade");
 					System.out.println("2. Update existing Grade");
+					System.out.println("(default) Back");
 					System.out.println();
 					System.out.println(">> ");
 					int choice  = input.nextInt();
@@ -51,15 +60,6 @@ public class StudentGradeBook implements Serializable {
 							this.editGradeBook();
 							this.displayGradeBook();
 							break;
-						default:
-							return;
-					}
-				}
-				else{
-					System.out.println();
-					System.out.println(">> ");
-					int choice = input.nextInt();
-					switch(choice){
 						default:
 							return;
 					}
@@ -85,6 +85,17 @@ public class StudentGradeBook implements Serializable {
 			}
 			else{
 				System.out.println("Unable to add Grade since student is not enrolled for the subject..");
+			}
+			System.out.print("Add Arrears(Y/N)?: ");
+			if(input.next().equals("Y")){
+				System.out.println("Enter Subject code: ");
+				String code2 = input.next();
+				if(currentStudent.hasSubject(code2)){
+					currentStudent.gradeBook.arrears.add(Subject.returnSubject(code2));
+				}
+				else{
+					System.out.println("Student not registered for the subject...");
+				}
 			}
 			currentStudent.save();
 		}

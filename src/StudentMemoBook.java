@@ -11,7 +11,7 @@ public class StudentMemoBook implements Serializable {
 	public void displayMemos(){
 		System.out.println("Memos of " + currentStudent.name + " : " );
 		System.out.println();
-		System.out.format("%s%30s%s%30s%s\n","Name","", "given By","","Date");
+		System.out.format("%s%30s%s%30s%s\n","Name","", "given By","","reason");
 		System.out.println(String.format("%0" + 100 + "d", 0).replace("0","-"));
 		try{
 			for(Memo m: currentStudent.memos){
@@ -25,6 +25,7 @@ public class StudentMemoBook implements Serializable {
 	}
 	
 	public void addNewMemo(){
+		System.out.println("--------------Add new Memo------------------");
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter memo name: ");
 		String name = input.next();

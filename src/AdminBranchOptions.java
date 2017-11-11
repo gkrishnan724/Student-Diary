@@ -58,10 +58,10 @@ public class AdminBranchOptions implements Serializable {
 		Branch b = Branch.returnBranch(name);
 		if(b != null){
 			Branch.totalBranches.remove(b);
-			b.save();
+			new Branch().save();
 		}
 		else{
-			System.out.println("Branch already exists..");
+			System.out.println("NO Branch  exists..");
 		}
 	}
 }

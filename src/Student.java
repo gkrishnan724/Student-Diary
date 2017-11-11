@@ -79,11 +79,12 @@ public class Student extends User{
 	}
 	
 	public String toString(){
-		return "name: " + name + " rollNo: " + rollNo + " Department: "+ department;
+		return "name: " + name + " rollNo: " + rollNo + " Department: "+ department.name;
 	}
 	
 	public void displayMenu(){
 		while(true){
+			Session.clrscr();
 			Scanner input = new Scanner(System.in);
 			System.out.println("Hi " + Session.sessionUser.name + "!");
 			System.out.println("------------------------------------------------------");
@@ -153,34 +154,58 @@ public class Student extends User{
 			catch(NullPointerException e){
 				System.out.println("Details not available");
 			}
-			System.out.println("1. edit");
-			System.out.println("2. Register for new Course");
-			System.out.println("3. Add new Achievement");
-			System.out.println("4. Add new Activity");
-			System.out.println("(default) Back");
-			System.out.println();
-			System.out.print(">> ");
-			int choice = input.nextInt();
-			switch(choice){
-				case 1:
-					Session.clrscr();
-					this.edit();
-					break;
-				case 2:
-					Session.clrscr();
-					courseOptions.addNewCourse();
-					break;
-				case 3:
-					Session.clrscr();
-					achievementOptions.addNewAchievement();
-					break;
-				case 4:
-					Session.clrscr();
-					activityOptions.addNewActivity();
-					break;
-				default:
-					return;
-				
+			if(Session.sessionUser instanceof Student){
+				System.out.println("1. edit");
+				System.out.println("2. Register for new Course");
+				System.out.println("3. Add new Achievement");
+				System.out.println("4. Add new Activity");
+				System.out.println("(default) Back");
+				System.out.println();
+				System.out.print(">> ");
+				int choice = input.nextInt();
+				switch(choice){
+					case 1:
+						Session.clrscr();
+						this.edit();
+						break;
+					case 2:
+						Session.clrscr();
+						courseOptions.addNewCourse();
+						break;
+					case 3:
+						Session.clrscr();
+						achievementOptions.addNewAchievement();
+						break;
+					case 4:
+						Session.clrscr();
+						activityOptions.addNewActivity();
+						break;
+					default:
+						return;
+					
+				}
+			}
+			else{
+				System.out.println("1. Add new Memo");
+				System.out.println("2. See GradeBook");
+				System.out.println("(default) Back");
+				System.out.println();
+				System.out.print(">> ");
+				int choice = input.nextInt();
+				switch(choice){
+					case 1:
+						Session.clrscr();
+						this.memoOptions.addNewMemo();
+						break;
+					case 2:
+						Session.clrscr();
+						this.gradeOptions.displayGradeBook();
+						break;
+					default:
+						Session.clrscr();
+						return;
+					
+				}
 			}
 		}
 	}
@@ -204,7 +229,7 @@ public class Student extends User{
 				System.out.print("State: ");
 				this.address.state = input.hasNextLine()?input.next():this.address.state;
 				System.out.print("Country: ");
-				this.address.country = input.hasNextLine()?input.next():this.address.state;
+				this.address.country = input.hasNextLine()?input.next():this.address.country;
 				System.out.print("ZIP: ");
 				this.address.Zip = input.hasNextInt()?input.nextInt():this.address.Zip;		
 			}

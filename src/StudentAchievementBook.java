@@ -82,11 +82,12 @@ public class StudentAchievementBook implements Serializable {
 		String proof  = input.next();
 		System.out.println("Enter rank (If no ranks then put 0 ): ");
 		int rank = input.nextInt();
-		Achievement a = new Achievement(name,rank,type,proof,date);
+		Achievement a = new Achievement(name,rank,type,proof,date,currentStudent);
 		currentStudent.achievements.add(a);
+		System.out.println(currentStudent.advisor.name);
 		currentStudent.advisor.pendingAchievements.add(a);
-		System.out.println("Thanks! Your achievement request has been sent to your counsellor for approval ");
-		new Counsellor().save(); //Created an instance of counsellor to save data
+		System.out.println("Thanks! Your achievement request has been sent to " + currentStudent.advisor.name + " for approval ");
+		currentStudent.advisor.save(); //Created an instance of counsellor to save data
 		currentStudent.save();
 		
 	}

@@ -5,6 +5,10 @@ public class Branch implements Storeable,Serializable {
 	ArrayList<Subject> subjects;
 	static ArrayList<Branch> totalBranches = new ArrayList<Branch>();
 	
+	Branch(){
+		
+	}
+	
 	Branch(String name){
 		this.subjects = new ArrayList<Subject>();
 		this.name = name;

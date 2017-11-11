@@ -43,7 +43,7 @@ public class AdminCounsellorOptions implements Serializable{
 		String code = input.next();
 		Counsellor s = Counsellor.returnCounsellor(code);
 		Counsellor.totalCounsellors.remove(s);
-		s.save();
+		new Counsellor().save();
 	}
 
 

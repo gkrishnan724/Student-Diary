@@ -41,9 +41,9 @@ public class AdminStudentOptions implements Serializable{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Roll no: ");
 		String code = input.next();
-		Subject s = Subject.returnSubject(code);
-		Subject.totalSubjects.remove(s);
-		s.save();
+		Student s = Student.returnStudent(code);
+		Student.totalStudents.remove(s);
+		new Student().save();
 	}
 	
 	public void createStudent(){

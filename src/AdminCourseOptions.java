@@ -72,6 +72,6 @@ public class AdminCourseOptions implements Serializable{
 		String code = input.next();
 		Subject s = Subject.returnSubject(code);
 		Subject.totalSubjects.remove(s);
-		s.save();
+		new Subject().save();
 	}
 }
